@@ -12,7 +12,12 @@ class Feb28 extends StatelessWidget {
       ),
       body: SafeArea(
           child: ListView(
-        children: const [Count(), Landing(), AnimatedCon(), SliderExample()],
+        children: const [
+          Count(),
+          Landing(),
+          AnimatedCon(),
+          SliderExample(),
+        ],
       )),
     );
   }
@@ -217,10 +222,11 @@ class SliderExample extends StatefulWidget {
 class _SliderExampleState extends State<SliderExample> {
   double _value = 1.0;
   double secondValue = 1.0;
+  double daVal = 1.0;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 280,
       color: Colors.teal.shade100,
       width: double.infinity,
       child: Column(
@@ -247,8 +253,10 @@ class _SliderExampleState extends State<SliderExample> {
                 activeTickMarkColor: Colors.white,
                 trackShape: const RoundedRectSliderTrackShape(),
                 trackHeight: 15,
+                valueIndicatorShape: const PaddleSliderValueIndicatorShape(),
                 thumbColor: Colors.teal,
                 inactiveTrackColor: Colors.white,
+                valueIndicatorColor: Colors.blueGrey,
                 activeTrackColor: Colors.deepPurple),
             child: Slider(
               label: '${secondValue.round()}',
@@ -268,6 +276,17 @@ class _SliderExampleState extends State<SliderExample> {
             style: const TextStyle(fontSize: 18),
           ),
           const Text('This Slider has a customed properties'),
+          Slider(
+              activeColor: Colors.green,
+              min: 0,
+              max: 25,
+              value: daVal,
+              onChanged: ((value) {
+                setState(() {
+                  daVal = value;
+                });
+              })),
+          Text('Slider Value: ${daVal.toInt()}')
         ],
       ),
     );
