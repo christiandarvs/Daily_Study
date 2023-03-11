@@ -6,12 +6,24 @@ class March11 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff78909C),
+      appBar: AppBar(
+        backgroundColor: Colors.teal,
+        centerTitle: true,
+        title: const Text('Scrollbar'),
+      ),
       body: SafeArea(
-          child: Center(
-        child: Column(
-          children: const [],
-        ),
+          child: Scrollbar(
+        interactive: true,
+        thickness: 12,
+        child: ListView.builder(
+            itemCount: 100,
+            itemBuilder: ((context, index) {
+              return Card(
+                child: ListTile(
+                  title: Text('Tile $index'),
+                ),
+              );
+            })),
       )),
     );
   }
