@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class March12 extends StatefulWidget {
   const March12({super.key});
@@ -32,6 +33,7 @@ class _March12State extends State<March12> {
               inactiveTrackColor: Colors.red.shade400,
               activeColor: const Color(0xff3F51B5),
               onChanged: (value) {
+                HapticFeedback.heavyImpact();
                 setState(() {
                   pressed = !pressed;
                 });
@@ -51,6 +53,8 @@ class _March12State extends State<March12> {
               tileColor: Colors.teal.shade200,
               enableFeedback: true,
               onChanged: (value) {
+                HapticFeedback.heavyImpact();
+
                 setState(() {
                   pressed1 = !pressed1;
                 });
@@ -69,6 +73,8 @@ class _March12State extends State<March12> {
                 activeThumbImage: const NetworkImage(
                     'https://th.bing.com/th/id/R.f0c35f827d946292944be691effe7aba?rik=ndSpvV5KAo3XGg&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f1061%2f1924%2fproducts%2fEmoji_Icon_-_Happy_grande.png%3fv%3d1571606093&ehk=YcWo6t%2bIMqARbRLmBVIe%2bRPVvwOZdxNaUUVOm7DB%2fZY%3d&risl=&pid=ImgRaw&r=0'),
                 onChanged: ((value) {
+                  HapticFeedback.heavyImpact();
+
                   setState(() {
                     pressed2 = !pressed2;
                   });
@@ -82,6 +88,8 @@ class _March12State extends State<March12> {
                 tileColor: pressed4 ? Colors.green.shade300 : Colors.grey,
                 title: const Text('Change List Tile Color'),
                 onChanged: ((value) {
+                  HapticFeedback.heavyImpact();
+
                   setState(() {
                     pressed4 = !pressed4;
                   });
@@ -94,6 +102,8 @@ class _March12State extends State<March12> {
                 ),
                 value: pressed3,
                 onChanged: ((value) {
+                  HapticFeedback.heavyImpact();
+
                   setState(() {
                     pressed3 = !pressed3;
                   });
